@@ -1,0 +1,6 @@
+{
+  "name": "ELVANO Agency | Presença Digital, Design & Gestão de Anúncios",
+  "description": "Sites, design e gestão de anúncios para pequenos e médios negócios. Presença que valoriza, estratégia que conecta.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
