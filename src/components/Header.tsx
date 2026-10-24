@@ -5,9 +5,10 @@ import { siteConfig } from '../config/siteConfig';
 interface HeaderProps {
   currentPath: string;
   onNavigate: (path: string) => void;
+  onPreload?: (path: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onPreload }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -65,6 +66,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             return (
               <button
                 key={link.path}
+                onMouseEnter={() => onPreload?.(link.path)}
+                onFocus={() => onPreload?.(link.path)}
                 onClick={() => handleNavClick(link.path)}
                 className={`transition-all whitespace-nowrap shrink-0 py-1 border-b-2 text-[13px] sm:text-sm tracking-wide ${
                   isActive
