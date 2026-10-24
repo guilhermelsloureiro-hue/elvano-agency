@@ -24,13 +24,13 @@ const demonstrativeProjects: DemonstrativeProject[] = [
     description:
       'Modelo demonstrativo planejado para prestadores de serviços e consultorias. O layout prioriza clareza de oferta, contraste com a paleta institucional e chamadas estratégicas para ação.',
     highlights: [
-      'Carregamento instantâneo com foco em Core Web Vitals',
+      'Estrutura orientada a bons indicadores de Core Web Vitals',
       'Botão flutuante e formulário simplificado para contato',
       'Hierarquia tipográfica para leitura confortável no celular',
     ],
     specs: [
       { label: 'Formato', value: 'One-page responsiva' },
-      { label: 'Carregamento', value: '< 0.5s' },
+      { label: 'Prioridade', value: 'Carregamento otimizado' },
       { label: 'Foco', value: 'Geração de leads' },
     ],
     type: 'landing',

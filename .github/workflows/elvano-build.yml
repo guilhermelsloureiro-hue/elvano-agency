@@ -1,0 +1,32 @@
+name: Validar e preparar site da Elvano
+on:
+  push:
+    branches:
+      - fix/site-velocidade-servicos-20261024
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+      - name: Verificar TypeScript
+        run: npm run lint
+      - name: Compilar para producao
+        run: npm run build
+      - name: Guardar site compilado (dist)
+        uses: actions/upload-artifact@v4
+        with:
+          name: elvano-dist-pronto-netlify
+          path: dist/
+          if-no-files-found: error

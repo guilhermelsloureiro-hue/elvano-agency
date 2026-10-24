@@ -9,6 +9,21 @@ import { HomePage } from './pages/HomePage';
 import { type ServiceItem } from './data/servicesData';
 
 // Route-based code splitting for secondary pages to reduce initial bundle
+// Warm up routes as soon as the visitor shows intent to navigate.
+const routeImporters: Record<string, () => Promise<unknown>> = {
+  '/servicos': () => import('./pages/ServicesPage'),
+  '/resultados': () => import('./pages/ResultsPage'),
+  '/sobre': () => import('./pages/AboutPage'),
+  '/contato': () => import('./pages/ContactPage'),
+  '/privacidade': () => import('./pages/PrivacyPage'),
+};
+const prefetchedRoutes = new Set<string>();
+const preloadRoute = (path: string) => {
+  if (prefetchedRoutes.has(path) || !routeImporters[path]) return;
+  prefetchedRoutes.add(path);
+  void routeImporters[path]().catch(() => prefetchedRoutes.delete(path));
+};
+
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })));
 const ResultsPage = lazy(() => import('./pages/ResultsPage').then((m) => ({ default: m.ResultsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -51,9 +66,11 @@ export default function App() {
     if (options?.serviceId) {
       setSelectedContactServiceId(options.serviceId);
     }
-    window.history.pushState({}, '', path);
+    if (window.location.pathname !== path) window.history.pushState({}, '', path);
+    preloadRoute(path);
+    setActiveModalService(null);
     setCurrentPath(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleOpenDetails = (service: ServiceItem) => {
@@ -101,7 +118,7 @@ export default function App() {
         <AnimatedBackground />
 
         {/* Global fixed top navigation */}
-        <Header currentPath={currentPath} onNavigate={navigateTo} />
+        <Header currentPath={currentPath} onNavigate={navigateTo} onPreload={preloadRoute} />
 
         {/* Main route content with lazy-route fallback */}
         <main className="flex-1 w-full" id="main-content">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { ServiceItem } from '../data/servicesData';
 
 interface ServiceMockupVisualProps {
@@ -25,6 +25,12 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
 }) => {
   const [currentSrc, setCurrentSrc] = useState<string>(service.imageSrc || '');
   const [imgError, setImgError] = useState(false);
+
+  // The modal reuses this component for different services: never retain the previous image.
+  useEffect(() => {
+    setCurrentSrc(service.imageSrc || '');
+    setImgError(false);
+  }, [service.id, service.imageSrc]);
 
   const handleError = () => {
     // If WebP fails, try JPEG fallback
@@ -54,7 +60,7 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
           loading={isEnlarged ? 'eager' : 'lazy'}
           decoding="async"
           width={1200}
-          height={896}
+          height={900}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Subtle champagne gradient vignette */}

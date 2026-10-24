@@ -256,8 +256,8 @@ export const servicesData: ServiceItem[] = [
       'Desenvolvimento de página única (one-page). Quantidade de seções, integrações adicionais de CRM, rodadas de revisão e prazos constam na proposta comercial. Registro de domínio e provedor de hospedagem são contratados pelo cliente.',
     idealFor:
       'Negócios e profissionais que realizam campanhas no Google Ads ou Meta Ads e precisam de uma página específica, rápida e atraente para transformar cliques em contatos ou pedidos.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: '/assets/images/landing-pages.svg',
+    imageFallback: '/assets/images/landing-pages.svg',
     mockupType: 'landing-page',
   },
   {
@@ -280,8 +280,8 @@ export const servicesData: ServiceItem[] = [
       'Escopo detalhado a partir da análise da plataforma e do código do site existente. Migrações complexas de banco de dados legado, lojas com centenas de plugins ou sistemas customizados de terceiros serão especificadas e alinhadas na proposta.',
     idealFor:
       'Empresas que já contam com um site publicado, mas percebem que ele está lento, confuso no celular, com visual ultrapassado ou com baixa taxa de conversão.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: '/assets/images/reformulacao-sites.svg',
+    imageFallback: '/assets/images/reformulacao-sites.svg',
     mockupType: 'reformulacao',
   },
   {
@@ -304,8 +304,8 @@ export const servicesData: ServiceItem[] = [
       'O suporte cobre manutenção e ajustes na estrutura já existente. Não inclui desenvolvimento de novas páginas completas, redesenho estrutural ou criação de novos sistemas, que são cotados separadamente como novos projetos.',
     idealFor:
       'Empresas que não dispõem de equipe interna de desenvolvimento e necessitam da tranquilidade de ter um profissional cuidando da estabilidade e atualização do seu site.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: '/assets/images/manutencao-digital.svg',
+    imageFallback: '/assets/images/manutencao-digital.svg',
     mockupType: 'manutencao',
   },
   {
@@ -328,8 +328,8 @@ export const servicesData: ServiceItem[] = [
       'Serviço focado exclusivamente na produção das artes gráficas digitais. A quantidade de formatos, peças, rodadas de revisão e prazos constam na proposta. A gestão de veiculação e verba de anúncios não estão inclusas caso contratado de forma avulsa.',
     idealFor:
       'Negócios que já investem ou planejam investir em anúncios e precisam de criativos com acabamento visual superior para destacar suas ofertas e aumentar as taxas de cliques.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: '/assets/images/criativos-campanhas.svg',
+    imageFallback: '/assets/images/criativos-campanhas.svg',
     mockupType: 'criativos',
   },
 ];
