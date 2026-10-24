@@ -28,9 +28,9 @@ export const siteConfig = {
     return `${this.whatsappBaseUrl}?text=${encodeURIComponent(message)}`;
   },
 
-  // Gerador de mensagem contextual para serviço específico
-  getServiceWhatsAppLink(serviceName: string, priceLabel: string): string {
-    const text = `Olá, Guilherme! Vi o serviço ${serviceName}, a partir de ${priceLabel}, no site da ELVANO. Gostaria de entender o escopo e pedir uma proposta para meu negócio.`;
+  // Gerador de mensagem contextual para serviço específico sem preços públicos
+  getServiceWhatsAppLink(serviceName: string): string {
+    const text = `Olá, Guilherme! Vi o serviço "${serviceName}" no site da ELVANO e gostaria de entender o escopo e solicitar uma proposta personalizada para meu negócio.`;
     return this.getWhatsAppLink(text);
   },
 

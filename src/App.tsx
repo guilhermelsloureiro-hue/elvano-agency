@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { AnimationProvider } from './context/AnimationContext';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Header } from './components/Header';
@@ -6,13 +6,15 @@ import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ResultsPage } from './pages/ResultsPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
-import { PrivacyPage } from './pages/PrivacyPage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { type ServiceItem, servicesData } from './data/servicesData';
+import { type ServiceItem } from './data/servicesData';
+
+// Route-based code splitting for secondary pages to reduce initial bundle
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })));
+const ResultsPage = lazy(() => import('./pages/ResultsPage').then((m) => ({ default: m.ResultsPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -31,7 +33,7 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Update document title and canonical meta dynamically per route
+  // Update document title dynamically per route
   useEffect(() => {
     const titles: Record<string, string> = {
       '/': 'ELVANO Agency | Presença Digital, Design & Gestão de Anúncios',
@@ -101,9 +103,17 @@ export default function App() {
         {/* Global fixed top navigation */}
         <Header currentPath={currentPath} onNavigate={navigateTo} />
 
-        {/* Main route content */}
+        {/* Main route content with lazy-route fallback */}
         <main className="flex-1 w-full" id="main-content">
-          {renderCurrentPage()}
+          <Suspense
+            fallback={
+              <div className="min-h-[50vh] flex items-center justify-center" aria-label="Carregando conteúdo">
+                <div className="w-8 h-8 rounded-full border-2 border-[#E3C8B2]/20 border-t-[#E3C8B2] animate-spin" />
+              </div>
+            }
+          >
+            {renderCurrentPage()}
+          </Suspense>
         </main>
 
         {/* Global Footer */}

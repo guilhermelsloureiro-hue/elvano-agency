@@ -1,53 +1,55 @@
 import React from 'react';
-import { MessageSquare, Target, FileText, Cpu, CheckCircle2, RefreshCw } from 'lucide-react';
+import { MessageSquare, Search, FileText, Cpu, CheckCircle2, ShieldAlert, ArrowRight } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 const steps = [
   {
     num: '01',
-    title: 'Conversa',
+    title: 'Conversa inicial para entender o negócio',
     icon: MessageSquare,
-    desc: 'Entendemos a realidade da sua empresa, quem é o seu público e o que você deseja melhorar na sua presença comercial.',
+    desc: 'Um primeiro contato direto pelo WhatsApp ou reunião para ouvir sobre a sua empresa, o momento atual das suas vendas e os canais em que você atua.',
   },
   {
     num: '02',
-    title: 'Prioridades',
-    icon: Target,
-    desc: 'Identificamos o que faz mais sentido para o seu momento atual, evitando contratações desnecessárias ou dispersão de verba.',
+    title: 'Análise das necessidades e objetivos',
+    icon: Search,
+    desc: 'Avaliamos a presença digital atual do seu negócio e identificamos com clareza quais soluções práticas trarão maior impacto com o investimento disponível.',
   },
   {
     num: '03',
-    title: 'Proposta',
+    title: 'Apresentação de proposta personalizada',
     icon: FileText,
-    desc: 'Alinhamos detalhadamente o serviço escolhido, as entregas previstas, prazos de execução e o investimento claro.',
+    desc: 'Apresentamos uma proposta clara com o escopo de entregas definido, prazos de execução, rodadas de revisão, suporte e condições de pagamento.',
   },
   {
     num: '04',
-    title: 'Execução',
+    title: 'Execução conforme o escopo aprovado',
     icon: Cpu,
-    desc: 'Desenvolvemos o trabalho de design, desenvolvimento ou configuração das campanhas conforme o escopo rigorosamente aprovado.',
+    desc: 'Desenvolvimento do design, programação do site ou configuração estratégica das campanhas de tráfego, respeitando estritamente o combinado.',
   },
   {
     num: '05',
-    title: 'Acompanhamento',
+    title: 'Entrega e orientações de utilização',
     icon: CheckCircle2,
-    desc: 'Realizamos os alinhamentos e a entrega do projeto ou o acompanhamento analítico e otimizações contínuas nos serviços mensais.',
+    desc: 'Apresentação final do projeto, orientações práticas de uso e acompanhamento contínuo no caso de serviços de gestão mensal de anúncios.',
   },
 ];
 
 export const ProjectStepsSection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 relative z-10" aria-labelledby="steps-heading">
+    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10" aria-labelledby="steps-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#E3C8B2] mb-3">
-            <RefreshCw className="w-3.5 h-3.5" />
-            <span>Processo Transparente</span>
+            <span className="w-6 h-px bg-[#E3C8B2]" />
+            <span>Processo de Contratação</span>
+            <span className="w-6 h-px bg-[#E3C8B2]" />
           </div>
           <h2 id="steps-heading" className="text-3xl sm:text-4xl font-serif text-[#F7F5F2] font-normal tracking-tight">
-            Como começa um projeto com a ELVANO
+            Do primeiro contato à entrega
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#DDD4CB]">
-            Do primeiro contato à entrega final ou acompanhamento contínuo de resultados, com alinhamento claro em cada etapa.
+          <p className="mt-3 text-base sm:text-lg text-[#DDD4CB] leading-relaxed">
+            Como funciona cada etapa do trabalho conjunto com a ELVANO, com transparência total do início ao fim.
           </p>
         </div>
 
@@ -70,7 +72,7 @@ export const ProjectStepsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-serif font-medium text-[#F7F5F2] mb-2.5">
+                  <h3 className="text-base sm:text-lg font-serif font-medium text-[#F7F5F2] mb-2.5 leading-snug">
                     {step.title}
                   </h3>
 
@@ -92,19 +94,18 @@ export const ProjectStepsSection: React.FC = () => {
           })}
         </div>
 
-        {/* Distinction between monthly ad management and project deliveries */}
-        <div className="mt-10 p-5 rounded-2xl bg-[#201C18]/80 border border-[#E3C8B2]/20 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#DDD4CB] shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#E3C8B2] shrink-0" />
-            <span>
-              <strong className="text-[#F7F5F2] font-semibold">Gestão de Anúncios:</strong> Ciclo mensal de acompanhamento, otimizações contínuas e relatórios periódicos.
-            </span>
+        {/* Commercial Clarifications Box */}
+        <div className="mt-12 p-6 rounded-2xl bg-[#201C18]/90 border border-[#E3C8B2]/25 max-w-4xl mx-auto space-y-3 shadow-xl">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#E3C8B2]">
+            <ShieldAlert className="w-4 h-4 text-[#E3C8B2]" />
+            <span>Condições e Escopo Formalizados na Proposta</span>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#A88769] shrink-0" />
-            <span>
-              <strong className="text-[#F7F5F2] font-semibold">Projetos de Design & Sites:</strong> Cronograma estruturado, prazos combinados e entrega validada em proposta.
-            </span>
+          <p className="text-xs sm:text-sm text-[#DDD4CB] leading-relaxed">
+            Prazos de entrega, rodadas de revisão, período de suporte técnico e condições de pagamento são formalizados e especificados detalhadamente na proposta comercial antes de qualquer contratação.
+          </p>
+          <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#E3C8B2]/90 border-t border-[#E3C8B2]/15">
+            <span>• Atendimento direto com Guilherme Lousada</span>
+            <span>• Sem fidelidade oculta ou renovações automáticas sem consentimento</span>
           </div>
         </div>
       </div>

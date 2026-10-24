@@ -27,7 +27,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenDetails }) => 
             <span>Catálogo Completo</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-serif text-[#F7F5F2] font-normal tracking-tight">
-            Serviços, escopos e valores transparentes
+            Serviços especializados e escopos claros
           </h1>
           <p className="mt-4 text-base sm:text-lg text-[#DDD4CB] leading-relaxed">
             Conheça todas as soluções de gestão de tráfego pago, design digital e desenvolvimento web da ELVANO Agency.
@@ -39,16 +39,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenDetails }) => 
           <div className="p-4 rounded-xl bg-[#201C18]/85 border border-[#E3C8B2]/20 text-xs sm:text-sm text-[#DDD4CB] leading-relaxed flex items-start gap-3 shadow-md">
             <AlertCircle className="w-4 h-4 text-[#E3C8B2] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-[#F7F5F2] font-medium block mb-0.5">Gestão de Anúncios Mensal:</strong>
-              Nos serviços de anúncios, o valor corresponde à gestão mensal. A verba de mídia é definida separadamente e paga pelo cliente diretamente às plataformas.
+              <strong className="text-[#F7F5F2] font-medium block mb-0.5">Gestão Estratégica de Anúncios:</strong>
+              Nos serviços de tráfego pago, a proposta contempla a gestão técnica contínua. A verba de mídia é definida em conjunto e paga pelo cliente diretamente às plataformas.
             </div>
           </div>
 
           <div className="p-4 rounded-xl bg-[#201C18]/85 border border-[#E3C8B2]/20 text-xs sm:text-sm text-[#DDD4CB] leading-relaxed flex items-start gap-3 shadow-md">
             <Sparkles className="w-4 h-4 text-[#E3C8B2] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-[#F7F5F2] font-medium block mb-0.5">Cobrança por Projeto:</strong>
-              Serviços de design e desenvolvimento são cobrados por projeto. Entregas, prazo, revisões e investimento final são alinhados por escrito antes da contratação.
+              <strong className="text-[#F7F5F2] font-medium block mb-0.5">Escopo por Projeto:</strong>
+              Serviços de design e desenvolvimento são estruturados sob medida. Entregas, prazos, revisões e condições comerciais são formalizados por escrito antes do início.
             </div>
           </div>
         </div>
@@ -86,10 +86,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenDetails }) => 
           <span>
             Exibindo <strong className="text-[#F7F5F2] font-sans font-semibold">{filteredServices.length}</strong> {filteredServices.length === 1 ? 'serviço' : 'serviços'}
           </span>
-          <span className="font-sans">Valores expressos a partir do escopo base</span>
+          <span className="font-sans">Propostas comerciais sob medida</span>
         </div>
 
-        {/* 8 Services Grid (3 columns on desktop, 2 on tablet, 1 on mobile) */}
+        {/* 12 Services Grid (3 columns on desktop, 2 on tablet, 1 on mobile) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {filteredServices.map((service) => (
             <ServiceCard

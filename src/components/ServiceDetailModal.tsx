@@ -43,7 +43,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
   if (!service) return null;
 
-  const whatsappUrl = siteConfig.getServiceWhatsAppLink(service.name, service.priceLabel);
+  const whatsappUrl = siteConfig.getServiceWhatsAppLink(service.name);
 
   return (
     <div
@@ -95,12 +95,12 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
           {/* Title and Pricing */}
           <div className="border-b border-[#E3C8B2]/15 pb-4">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <h2 id="modal-service-title" className="text-2xl sm:text-3xl font-serif text-[#F7F5F2] font-medium">
                 {service.name}
               </h2>
-              <div className="text-xl sm:text-2xl font-serif font-bold text-[#F4E2D2] tabular-nums">
-                {service.priceLabel}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E3C8B2]/15 border border-[#E3C8B2]/30 text-xs sm:text-sm font-medium text-[#E3C8B2] self-start sm:self-auto">
+                Proposta Personalizada sob Medida
               </div>
             </div>
             <p className="mt-2 text-base text-[#DDD4CB] leading-relaxed">
@@ -163,7 +163,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] text-[#141311] font-semibold text-sm hover:brightness-105 active:scale-95 transition-all shadow-lg shadow-[#E3C8B2]/15 order-1 sm:order-2"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Quero este serviço no WhatsApp</span>
+            <span>Solicitar proposta no WhatsApp</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </a>
         </div>

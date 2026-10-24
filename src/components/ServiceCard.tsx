@@ -10,7 +10,7 @@ interface ServiceCardProps {
 }
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails }) => {
-  const whatsappUrl = siteConfig.getServiceWhatsAppLink(service.name, service.priceLabel);
+  const whatsappUrl = siteConfig.getServiceWhatsAppLink(service.name);
 
   return (
     <article className="elvano-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between h-full group hover:shadow-2xl hover:shadow-[#E3C8B2]/8 relative transition-all duration-300">
@@ -53,16 +53,20 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
         </div>
       </div>
 
-      {/* Bottom area: Price and 2 explicit action buttons */}
+      {/* Bottom area: Action and tailored proposal info */}
       <div className="pt-4 border-t border-[#E3C8B2]/15 mt-2">
-        <div className="mb-4">
-          <span className="text-[11px] text-[#DDD4CB]/80 block uppercase tracking-wider font-medium">
-            Investimento
-          </span>
-          <div className="text-xl sm:text-2xl font-serif font-bold text-[#F4E2D2] tabular-nums tracking-normal mt-0.5">
-            <span className="text-xs font-sans font-normal text-[#DDD4CB] mr-1">a partir de</span>
-            {service.priceLabel}
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <span className="text-[11px] text-[#DDD4CB]/80 block uppercase tracking-wider font-medium">
+              Proposta Comercial
+            </span>
+            <div className="text-sm sm:text-base font-serif font-medium text-[#F4E2D2] mt-0.5">
+              Personalizada sob medida
+            </div>
           </div>
+          <span className="text-[11px] text-[#E3C8B2] font-mono bg-[#E3C8B2]/10 px-2.5 py-1 rounded-full border border-[#E3C8B2]/20">
+            Sob consulta
+          </span>
         </div>
 
         <div className="grid grid-cols-2 gap-2">
@@ -82,7 +86,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
             className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] hover:brightness-105 active:scale-95 text-[#141311] text-xs font-semibold transition-all shadow-md shadow-[#E3C8B2]/10"
           >
             <MessageCircle className="w-3.5 h-3.5" />
-            <span>Quero este</span>
+            <span>Solicitar proposta</span>
           </a>
         </div>
       </div>

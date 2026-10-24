@@ -149,7 +149,7 @@ export const ContactFormSection: React.FC<ContactFormProps> = ({ initialServiceI
                   <option value="Ainda não sei">Ainda não sei (quero avaliar com o Guilherme)</option>
                   {servicesData.map((s) => (
                     <option key={s.id} value={s.name}>
-                      {s.name} ({s.priceLabel})
+                      {s.name}
                     </option>
                   ))}
                 </select>

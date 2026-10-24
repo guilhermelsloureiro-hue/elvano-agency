@@ -27,11 +27,16 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
   const [imgError, setImgError] = useState(false);
 
   const handleError = () => {
-    const fallback = fallbackMap[service.id];
-    if (fallback && currentSrc !== fallback) {
-      setCurrentSrc(fallback);
+    // If WebP fails, try JPEG fallback
+    if (service.imageFallback && currentSrc !== service.imageFallback) {
+      setCurrentSrc(service.imageFallback);
     } else {
-      setImgError(true);
+      const fallback = fallbackMap[service.id];
+      if (fallback && currentSrc !== fallback) {
+        setCurrentSrc(fallback);
+      } else {
+        setImgError(true);
+      }
     }
   };
 
@@ -46,6 +51,10 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
           alt={`Apresentação visual de ${service.name}`}
           referrerPolicy="no-referrer"
           onError={handleError}
+          loading={isEnlarged ? 'eager' : 'lazy'}
+          decoding="async"
+          width={1200}
+          height={896}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Subtle champagne gradient vignette */}
@@ -311,6 +320,156 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
               <div className="h-3 bg-[#E3C8B2] rounded flex items-center justify-center text-[6px] text-[#141311] font-bold">
                 WhatsApp
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {service.mockupType === 'landing-page' && (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="w-[68%] h-[80%] bg-[#141311] rounded-xl border border-[#E3C8B2]/30 shadow-2xl p-2.5 flex flex-col">
+            <div className="flex items-center justify-between pb-1.5 border-b border-[#E3C8B2]/15">
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/50" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/20" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/20" />
+              </div>
+              <span className="text-[8px] font-mono text-[#E3C8B2] bg-[#E3C8B2]/10 px-1.5 py-0.5 rounded">
+                CTA Direto
+              </span>
+            </div>
+            {/* Hero Offer Section */}
+            <div className="mt-2 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="h-2 w-4/5 bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] rounded" />
+                <div className="h-1.5 w-1/2 bg-[#C7BEB5]/50 rounded mt-1" />
+                <div className="h-1 w-full bg-[#C7BEB5]/30 rounded mt-1.5" />
+              </div>
+              {/* Form & Action Box */}
+              <div className="bg-[#201C18] rounded-lg p-2 border border-[#E3C8B2]/20 space-y-1">
+                <div className="h-1.5 w-2/3 bg-[#E3C8B2]/40 rounded" />
+                <div className="h-3.5 bg-[#141311] rounded border border-[#E3C8B2]/15 flex items-center px-1.5">
+                  <span className="text-[6px] text-[#C7BEB5]/60">Seu melhor contato...</span>
+                </div>
+                <div className="h-4 rounded bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] flex items-center justify-center">
+                  <span className="text-[7px] text-[#141311] font-bold">Solicitar Proposta</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Mobile Badge */}
+          <div className="absolute -bottom-1 right-2 w-[28%] h-[58%] bg-[#1A1815] rounded-xl border border-[#E3C8B2]/40 shadow-2xl p-1 flex flex-col justify-between z-10">
+            <div className="w-4 h-0.5 bg-[#E3C8B2]/30 rounded mx-auto" />
+            <div className="h-1.5 w-3/4 bg-[#E3C8B2] rounded mt-1" />
+            <div className="h-3 rounded bg-[#E3C8B2] flex items-center justify-center text-[6px] text-[#141311] font-bold">
+              Conversão
+            </div>
+          </div>
+        </div>
+      )}
+
+      {service.mockupType === 'reformulacao' && (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="w-[84%] h-[82%] bg-[#141311] rounded-xl border border-[#E3C8B2]/30 shadow-2xl p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E3C8B2]/15">
+              <span className="text-[8px] font-serif text-[#E3C8B2] uppercase tracking-wider">Otimização & Performance</span>
+              <span className="text-[8px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-1.5 py-0.5 rounded">
+                Score: 99/100
+              </span>
+            </div>
+            {/* Before vs After comparison bars */}
+            <div className="space-y-2 my-auto">
+              <div className="bg-[#201C18] p-2 rounded-lg border border-[#E3C8B2]/15 flex items-center justify-between">
+                <div>
+                  <span className="text-[7px] text-[#C7BEB5] block">Velocidade de Carregamento</span>
+                  <span className="text-[9px] font-semibold text-emerald-300 font-mono">0.4s · Super Rápido</span>
+                </div>
+                <div className="w-12 h-2 bg-[#141311] rounded-full overflow-hidden border border-[#E3C8B2]/20">
+                  <div className="h-full bg-emerald-400 w-[95%]" />
+                </div>
+              </div>
+              <div className="bg-[#201C18] p-2 rounded-lg border border-[#E3C8B2]/15 flex items-center justify-between">
+                <div>
+                  <span className="text-[7px] text-[#C7BEB5] block">Experiência Mobile</span>
+                  <span className="text-[9px] font-semibold text-[#E3C8B2] font-mono">100% Responsivo</span>
+                </div>
+                <div className="w-12 h-2 bg-[#141311] rounded-full overflow-hidden border border-[#E3C8B2]/20">
+                  <div className="h-full bg-[#E3C8B2] w-[100%]" />
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between text-[7px] text-[#C7BEB5]/80 pt-1.5 border-t border-[#E3C8B2]/10">
+              <span>Layout Redesenhado</span>
+              <span className="text-[#E3C8B2]">Core Web Vitals Aprovado</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {service.mockupType === 'manutencao' && (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="w-[84%] h-[82%] bg-[#141311] rounded-xl border border-[#E3C8B2]/30 shadow-2xl p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E3C8B2]/15">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[8px] font-semibold text-[#F7F5F2]">Monitoramento Ativo</span>
+              </div>
+              <span className="text-[8px] font-mono text-[#E3C8B2] bg-[#E3C8B2]/10 border border-[#E3C8B2]/20 px-1.5 py-0.5 rounded">
+                Uptime 99.9%
+              </span>
+            </div>
+            {/* Checklist items */}
+            <div className="space-y-1.5 my-auto">
+              <div className="flex items-center justify-between p-1.5 rounded bg-[#201C18] border border-[#E3C8B2]/10 text-[8px]">
+                <span className="text-[#F7F5F2]">Certificado SSL & Segurança</span>
+                <span className="text-emerald-400 font-bold">Ativo</span>
+              </div>
+              <div className="flex items-center justify-between p-1.5 rounded bg-[#201C18] border border-[#E3C8B2]/10 text-[8px]">
+                <span className="text-[#F7F5F2]">Atualização de Conteúdo & Ofertas</span>
+                <span className="text-[#E3C8B2] font-semibold">Regular</span>
+              </div>
+              <div className="flex items-center justify-between p-1.5 rounded bg-[#201C18] border border-[#E3C8B2]/10 text-[8px]">
+                <span className="text-[#F7F5F2]">Suporte Técnico Prioritário</span>
+                <span className="text-[#E3C8B2] font-semibold">WhatsApp</span>
+              </div>
+            </div>
+            <div className="text-[7px] text-[#C7BEB5]/70 text-center pt-1 border-t border-[#E3C8B2]/10">
+              Tranquilidade operacional para o seu site
+            </div>
+          </div>
+        </div>
+      )}
+
+      {service.mockupType === 'criativos' && (
+        <div className="w-full h-full flex items-center justify-center relative">
+          {/* Main 1:1 Creative card */}
+          <div className="w-[58%] h-[74%] -mr-4 mb-2 bg-[#141311] rounded-xl border border-[#E3C8B2]/30 shadow-2xl p-2 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1 border-b border-[#E3C8B2]/15">
+              <span className="text-[8px] font-serif text-[#E3C8B2]">Feed Post 1:1</span>
+              <span className="text-[7px] text-[#C7BEB5]">Alta Definição</span>
+            </div>
+            <div className="h-14 bg-gradient-to-tr from-[#24201C] to-[#1C1814] rounded border border-[#E3C8B2]/20 flex flex-col items-center justify-center p-1 text-center">
+              <span className="text-[8px] font-serif font-bold text-[#F7F5F2] leading-tight">
+                Design de Impacto
+              </span>
+              <div className="h-1 w-10 bg-[#E3C8B2] rounded mt-1" />
+            </div>
+            <div className="flex items-center justify-between text-[7px] pt-1 border-t border-[#E3C8B2]/10">
+              <span className="text-[#E3C8B2]">Tipografia & Cores</span>
+              <span className="text-[6px] px-1 rounded bg-[#E3C8B2]/20 text-[#E3C8B2]">Formatos Meta/Google</span>
+            </div>
+          </div>
+          {/* Vertical Stories format card 9:16 */}
+          <div className="w-[32%] h-[84%] bg-[#1A1815] rounded-xl border border-[#E3C8B2]/40 shadow-2xl p-1.5 flex flex-col justify-between z-10">
+            <div className="w-5 h-0.5 bg-[#E3C8B2]/40 rounded mx-auto" />
+            <div className="text-center my-auto">
+              <span className="text-[7px] font-mono text-[#E3C8B2] block">Stories</span>
+              <span className="text-[7px] font-serif text-[#F7F5F2] font-semibold leading-tight block mt-0.5">
+                9:16 Vertical
+              </span>
+            </div>
+            <div className="h-3 rounded bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] flex items-center justify-center">
+              <span className="text-[6px] text-[#141311] font-bold">Arraste / Clique</span>
             </div>
           </div>
         </div>

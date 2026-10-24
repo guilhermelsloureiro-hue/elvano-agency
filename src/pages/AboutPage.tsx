@@ -80,7 +80,7 @@ export const AboutPage: React.FC = () => {
             </div>
             <h4 className="text-lg font-serif text-[#F7F5F2] mb-2 font-medium">Transparência</h4>
             <p className="text-xs sm:text-sm text-[#DDD4CB] leading-relaxed">
-              Escopos combinados por escrito, preços visíveis desde o início e cobrança condizente com as entregas de cada projeto.
+              Escopos combinados por escrito, entregas claras desde o início e alinhamento sob medida para cada negócio.
             </p>
           </div>
 
