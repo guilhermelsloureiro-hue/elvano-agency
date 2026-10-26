@@ -1,6 +1,13 @@
-import React from 'react';
-import { Layers, Smartphone, Laptop, Zap, Check, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Layers, Check, ArrowRight, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+
+import demoLandingWebp from '../assets/images/demo_landing_capture_1793015424993.webp';
+import demoLandingJpg from '../assets/images/demo_landing_capture_1793015424993.jpg';
+import demoEcommerceWebp from '../assets/images/demo_ecommerce_store_1793015442222.webp';
+import demoEcommerceJpg from '../assets/images/demo_ecommerce_store_1793015442222.jpg';
+import demoSpeedWebp from '../assets/images/demo_speed_modernization_1793015460262.webp';
+import demoSpeedJpg from '../assets/images/demo_speed_modernization_1793015460262.jpg';
 
 interface DemonstrativeProject {
   id: string;
@@ -11,6 +18,8 @@ interface DemonstrativeProject {
   description: string;
   highlights: string[];
   specs: { label: string; value: string }[];
+  imageSrc: string;
+  imageFallback: string;
   type: 'landing' | 'ecommerce' | 'reformulacao';
 }
 
@@ -33,6 +42,8 @@ const demonstrativeProjects: DemonstrativeProject[] = [
       { label: 'Carregamento', value: '< 0.5s' },
       { label: 'Foco', value: 'Geração de leads' },
     ],
+    imageSrc: demoLandingWebp,
+    imageFallback: demoLandingJpg,
     type: 'landing',
   },
   {
@@ -53,6 +64,8 @@ const demonstrativeProjects: DemonstrativeProject[] = [
       { label: 'Estética', value: 'Minimalista & Premium' },
       { label: 'Dispositivos', value: 'Mobile-first' },
     ],
+    imageSrc: demoEcommerceWebp,
+    imageFallback: demoEcommerceJpg,
     type: 'ecommerce',
   },
   {
@@ -73,13 +86,15 @@ const demonstrativeProjects: DemonstrativeProject[] = [
       { label: 'Responsividade', value: '100% Adaptável' },
       { label: 'Padrão', value: 'Design System Exclusivo' },
     ],
+    imageSrc: demoSpeedWebp,
+    imageFallback: demoSpeedJpg,
     type: 'reformulacao',
   },
 ];
 
 export const DemonstrativeProjectsSection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 bg-[#161412]/50 backdrop-blur-sm" aria-labelledby="demo-heading">
+    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 bg-[#161412]/50 backdrop-blur-sm content-visibility-auto" aria-labelledby="demo-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
@@ -118,78 +133,23 @@ export const DemonstrativeProjectsSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Conceptual UI Preview Graphic */}
-                <div className="mb-5 rounded-xl bg-gradient-to-br from-[#1C1814] via-[#24201C] to-[#141210] border border-[#E3C8B2]/20 p-4 aspect-[16/10] flex flex-col justify-between relative overflow-hidden group-hover:border-[#E3C8B2]/40 transition-all">
-                  {/* Subtle ambient light */}
-                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#E3C8B2]/15 rounded-full blur-xl pointer-events-none" />
-
-                  {/* Browser / Device Chrome */}
-                  <div className="flex items-center justify-between pb-2 border-b border-[#E3C8B2]/15 relative z-10">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/40" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/20" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#E3C8B2]/20" />
-                    </div>
-                    <span className="text-[8px] text-[#C7BEB5]/70 font-mono">
-                      demo.elvanoagency.com
-                    </span>
-                  </div>
-
-                  {/* Visual abstraction per type */}
-                  {project.type === 'landing' && (
-                    <div className="py-2 space-y-2 relative z-10 flex-1 flex flex-col justify-center">
-                      <div className="h-2.5 w-3/4 bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] rounded" />
-                      <div className="h-1.5 w-full bg-[#C7BEB5]/30 rounded" />
-                      <div className="h-1.5 w-4/5 bg-[#C7BEB5]/20 rounded" />
-                      <div className="pt-2 flex items-center gap-2">
-                        <div className="h-4 px-3 rounded bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] flex items-center">
-                          <span className="text-[7px] text-[#141311] font-bold">Botão de Conversão</span>
-                        </div>
-                        <div className="h-4 w-12 rounded bg-[#201C18] border border-[#E3C8B2]/20" />
-                      </div>
-                    </div>
-                  )}
-
-                  {project.type === 'ecommerce' && (
-                    <div className="py-2 space-y-2 relative z-10 flex-1 flex flex-col justify-center">
-                      <div className="h-9 rounded bg-[#201C18] border border-[#E3C8B2]/15 p-1.5 flex items-center justify-between">
-                        <div className="w-6 h-6 rounded bg-[#E3C8B2]/20" />
-                        <div className="flex-1 ml-2 space-y-1">
-                          <div className="h-1.5 w-1/2 bg-[#E3C8B2] rounded" />
-                          <div className="h-1 w-3/4 bg-[#C7BEB5]/40 rounded" />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-3 gap-1.5">
-                        <div className="h-7 rounded bg-[#201C18] border border-[#E3C8B2]/10" />
-                        <div className="h-7 rounded bg-[#201C18] border border-[#E3C8B2]/10" />
-                        <div className="h-7 rounded bg-[#201C18] border border-[#E3C8B2]/10" />
-                      </div>
-                    </div>
-                  )}
-
-                  {project.type === 'reformulacao' && (
-                    <div className="py-2 space-y-2 relative z-10 flex-1 flex flex-col justify-center">
-                      <div className="flex items-center justify-between bg-emerald-950/40 border border-emerald-500/30 px-2 py-1 rounded">
-                        <span className="text-[7px] text-emerald-300 font-mono">Performance Score</span>
-                        <span className="text-[8px] font-bold text-emerald-300 font-mono">99 / 100</span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-1.5 pt-1">
-                        <div className="p-1.5 rounded bg-[#201C18] border border-[#E3C8B2]/15">
-                          <span className="text-[6px] text-[#C7BEB5] block">Antes</span>
-                          <span className="text-[7px] text-red-300 font-mono">3.8s Lento</span>
-                        </div>
-                        <div className="p-1.5 rounded bg-[#201C18] border border-emerald-500/30">
-                          <span className="text-[6px] text-[#C7BEB5] block">Depois</span>
-                          <span className="text-[7px] text-emerald-300 font-mono">0.4s Veloz</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Card bottom bar */}
-                  <div className="flex items-center justify-between text-[7px] text-[#C7BEB5]/80 pt-1.5 border-t border-[#E3C8B2]/10 relative z-10">
-                    <span>ELVANO Studio Preview</span>
-                    <span className="text-[#E3C8B2]">Visual Demonstrativo</span>
+                {/* High-Fidelity Photography Presentation */}
+                <div className="mb-5 rounded-xl overflow-hidden bg-[#1C1814] border border-[#E3C8B2]/20 aspect-[4/3] relative group-hover:border-[#E3C8B2]/40 transition-all">
+                  <picture>
+                    <source srcSet={project.imageSrc} type="image/webp" />
+                    <img
+                      src={project.imageFallback}
+                      alt={`Apresentação conceitual: ${project.title}`}
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={900}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </picture>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141311] via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute bottom-2.5 left-2.5 text-[10px] tracking-wider uppercase font-mono text-[#E3C8B2]/90 bg-[#141311]/85 backdrop-blur-md px-2.5 py-1 rounded border border-[#E3C8B2]/20">
+                    {project.category}
                   </div>
                 </div>
 
@@ -228,10 +188,10 @@ export const DemonstrativeProjectsSection: React.FC = () => {
                 </div>
 
                 <a
-                  href={siteConfig.getWhatsAppLink(`Olá, Guilherme! Vi os projetos demonstrativos no site da ELVANO e gostaria de solicitar um orçamento para o meu negócio.`)}
+                  href={siteConfig.getWhatsAppLink(`Olá, Guilherme! Vi o projeto demonstrativo "${project.title}" no site da ELVANO e gostaria de conversar sobre uma proposta personalizada para a minha empresa.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#201C18] hover:bg-[#282420] text-[#F7F5F2] hover:text-[#E3C8B2] border border-[#E3C8B2]/25 text-xs font-semibold transition-all group-hover:border-[#E3C8B2]/50 shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#201C18] hover:bg-[#282420] text-[#F7F5F2] hover:text-[#E3C8B2] border border-[#E3C8B2]/25 text-xs font-semibold transition-all group-hover:border-[#E3C8B2]/50 shadow-sm"
                 >
                   <span>Solicitar proposta para meu projeto</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#E3C8B2]" />

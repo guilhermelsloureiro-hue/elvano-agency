@@ -55,8 +55,18 @@ export const ContactFormSection: React.FC<ContactFormProps> = ({ initialServiceI
 
     const whatsappUrl = siteConfig.getWhatsAppLink(message);
 
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    // Open WhatsApp reliably via synthetic anchor click
+    try {
+      const a = document.createElement('a');
+      a.href = whatsappUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      window.location.assign(whatsappUrl);
+    }
 
     setTimeout(() => {
       setIsOpeningWhatsApp(false);

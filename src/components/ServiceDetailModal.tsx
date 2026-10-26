@@ -150,22 +150,35 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
         {/* Modal Footer Actions */}
         <div className="p-4 sm:p-5 bg-[#1C1814]/95 border-t border-[#E3C8B2]/15 flex flex-col sm:flex-row items-center justify-between gap-3">
           <button
+            type="button"
             onClick={onClose}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-lg text-sm font-medium text-[#DDD4CB] hover:text-[#FFFFFF] transition-colors order-2 sm:order-1"
+            className="w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs sm:text-sm font-medium text-[#DDD4CB] hover:text-[#FFFFFF] transition-colors order-3 sm:order-1"
           >
             Fechar detalhes
           </button>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] text-[#141311] font-semibold text-sm hover:brightness-105 active:scale-95 transition-all shadow-lg shadow-[#E3C8B2]/15 order-1 sm:order-2"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Solicitar proposta no WhatsApp</span>
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto order-1 sm:order-2">
+            {onSelectForContact && (
+              <button
+                type="button"
+                onClick={() => onSelectForContact(service.id)}
+                className="w-full sm:w-auto px-4 py-3 rounded-xl bg-[#201C18] hover:bg-[#282420] text-[#E3C8B2] hover:text-[#FFFFFF] border border-[#E3C8B2]/25 text-xs font-semibold transition-colors shadow-sm"
+              >
+                Preencher formulário
+              </button>
+            )}
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] text-[#141311] font-semibold text-xs sm:text-sm hover:brightness-105 active:scale-95 transition-all shadow-lg shadow-[#E3C8B2]/15"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Solicitar proposta no WhatsApp</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -334,7 +334,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenDetails })
       {/* ========================================================
           4. APRESENTAÇÃO DOS SERVIÇOS DISPONÍVEIS
           ======================================================== */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="featured-heading">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-visibility-auto" aria-labelledby="featured-heading">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4">
           <div>
             <span className="text-xs font-semibold tracking-widest uppercase text-[#E3C8B2] block mb-2">

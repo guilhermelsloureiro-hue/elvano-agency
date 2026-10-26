@@ -48,7 +48,7 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10" aria-labelledby="faq-heading">
+    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 content-visibility-auto" aria-labelledby="faq-heading">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#E3C8B2] mb-3">

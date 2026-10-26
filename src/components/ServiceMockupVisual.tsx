@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ServiceItem } from '../data/servicesData';
 
 interface ServiceMockupVisualProps {
@@ -16,6 +16,10 @@ const fallbackMap: Record<string, string> = {
   'design-instagram': '/assets/images/design_instagram_custom_1791984971502.jpg',
   'design-loja-virtual': '/assets/images/design_loja_custom_1791984974722.jpg',
   'site-completo': '/assets/images/site_completo_custom_1791984977344.jpg',
+  'landing-page': '/assets/images/landing_page_service_1793015364654.jpg',
+  'reformulacao-sites': '/assets/images/reformulacao_service_1793015377831.jpg',
+  'manutencao-suporte': '/assets/images/manutencao_service_1793015392722.jpg',
+  'criativos-campanhas': '/assets/images/criativos_service_1793015410131.jpg',
 };
 
 export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
@@ -25,6 +29,12 @@ export const ServiceMockupVisual: React.FC<ServiceMockupVisualProps> = ({
 }) => {
   const [currentSrc, setCurrentSrc] = useState<string>(service.imageSrc || '');
   const [imgError, setImgError] = useState(false);
+
+  // Sync state whenever service changes
+  useEffect(() => {
+    setCurrentSrc(service.imageSrc || '');
+    setImgError(false);
+  }, [service.imageSrc, service.id]);
 
   const handleError = () => {
     // If WebP fails, try JPEG fallback

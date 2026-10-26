@@ -37,7 +37,7 @@ const steps = [
 
 export const ProjectStepsSection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10" aria-labelledby="steps-heading">
+    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 content-visibility-auto" aria-labelledby="steps-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#E3C8B2] mb-3">

@@ -113,43 +113,51 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu & Backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#141311]/98 backdrop-blur-xl border-b border-[#E3C8B2]/25 shadow-2xl p-6 transition-all">
-          <nav className="flex flex-col space-y-3">
-            {siteConfig.navLinks.map((link) => {
-              const isActive = currentPath === link.path;
-              return (
-                <button
-                  key={link.path}
-                  onClick={() => handleNavClick(link.path)}
-                  className={`text-left text-base py-3 px-3.5 rounded-xl transition-colors ${
-                    isActive
-                      ? 'bg-[#201C18] text-[#E3C8B2] font-semibold border border-[#E3C8B2]/30'
-                      : 'text-[#DDD4CB] hover:text-[#FFFFFF] hover:bg-[#1C1814]'
-                  }`}
+        <>
+          <div
+            className="md:hidden fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="md:hidden absolute inset-x-0 top-full z-50 bg-[#141311]/98 backdrop-blur-2xl border-b border-[#E3C8B2]/25 shadow-2xl p-6 transition-all">
+            <nav className="flex flex-col space-y-2.5">
+              {siteConfig.navLinks.map((link) => {
+                const isActive = currentPath === link.path;
+                return (
+                  <button
+                    key={link.path}
+                    type="button"
+                    onClick={() => handleNavClick(link.path)}
+                    className={`text-left text-base py-3 px-4 rounded-xl transition-all ${
+                      isActive
+                        ? 'bg-[#201C18] text-[#E3C8B2] font-semibold border border-[#E3C8B2]/30 shadow-md'
+                        : 'text-[#DDD4CB] hover:text-[#FFFFFF] hover:bg-[#1C1814]'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
+              <div className="pt-4 mt-2 border-t border-[#E3C8B2]/15">
+                <a
+                  href={siteConfig.getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] text-[#141311] font-semibold text-sm shadow-lg shadow-[#E3C8B2]/15"
                 >
-                  {link.label}
-                </button>
-              );
-            })}
-            <div className="pt-4 border-t border-[#E3C8B2]/15">
-              <a
-                href={siteConfig.getWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-gradient-to-r from-[#E3C8B2] to-[#F4E2D2] text-[#141311] font-semibold text-sm shadow-lg shadow-[#E3C8B2]/15"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Conversar com Guilherme</span>
-              </a>
-              <div className="text-center mt-3 text-xs text-[#DDD4CB]/80">
-                {siteConfig.phoneDisplay}
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Conversar com Guilherme</span>
+                </a>
+                <div className="text-center mt-3 text-xs text-[#DDD4CB]/80 font-mono">
+                  {siteConfig.phoneDisplay}
+                </div>
               </div>
-            </div>
-          </nav>
-        </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );

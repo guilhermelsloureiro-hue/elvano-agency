@@ -36,7 +36,7 @@ const differentials = [
 
 export const WhyChooseSection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 bg-[#1A1815]/40 backdrop-blur-sm" aria-labelledby="why-choose-heading">
+    <section className="py-16 sm:py-24 relative z-10 border-t border-[#E3C8B2]/10 bg-[#1A1815]/40 backdrop-blur-sm content-visibility-auto" aria-labelledby="why-choose-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#E3C8B2] mb-3">

@@ -6,6 +6,10 @@ import gestaoCompletaWebp from '../assets/images/gestao_completa_custom_17919849
 import designInstagramWebp from '../assets/images/design_instagram_custom_1791984971502.webp';
 import designLojaWebp from '../assets/images/design_loja_custom_1791984974722.webp';
 import siteCompletoWebp from '../assets/images/site_completo_custom_1791984977344.webp';
+import landingPageWebp from '../assets/images/landing_page_service_1793015364654.webp';
+import reformulacaoWebp from '../assets/images/reformulacao_service_1793015377831.webp';
+import manutencaoWebp from '../assets/images/manutencao_service_1793015392722.webp';
+import criativosWebp from '../assets/images/criativos_service_1793015410131.webp';
 
 import metaAdsJpg from '../assets/images/meta_ads_custom_1791984969301.jpg';
 import googleAdsJpg from '../assets/images/google_ads_custom_1791984969152.jpg';
@@ -15,6 +19,10 @@ import gestaoCompletaJpg from '../assets/images/gestao_completa_custom_179198497
 import designInstagramJpg from '../assets/images/design_instagram_custom_1791984971502.jpg';
 import designLojaJpg from '../assets/images/design_loja_custom_1791984974722.jpg';
 import siteCompletoJpg from '../assets/images/site_completo_custom_1791984977344.jpg';
+import landingPageJpg from '../assets/images/landing_page_service_1793015364654.jpg';
+import reformulacaoJpg from '../assets/images/reformulacao_service_1793015377831.jpg';
+import manutencaoJpg from '../assets/images/manutencao_service_1793015392722.jpg';
+import criativosJpg from '../assets/images/criativos_service_1793015410131.jpg';
 
 export type ServiceCategory = 'todos' | 'anuncios' | 'marketplace' | 'design' | 'sites' | 'integradas';
 
@@ -256,8 +264,8 @@ export const servicesData: ServiceItem[] = [
       'Desenvolvimento de página única (one-page). Quantidade de seções, integrações adicionais de CRM, rodadas de revisão e prazos constam na proposta comercial. Registro de domínio e provedor de hospedagem são contratados pelo cliente.',
     idealFor:
       'Negócios e profissionais que realizam campanhas no Google Ads ou Meta Ads e precisam de uma página específica, rápida e atraente para transformar cliques em contatos ou pedidos.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: landingPageWebp,
+    imageFallback: landingPageJpg,
     mockupType: 'landing-page',
   },
   {
@@ -280,8 +288,8 @@ export const servicesData: ServiceItem[] = [
       'Escopo detalhado a partir da análise da plataforma e do código do site existente. Migrações complexas de banco de dados legado, lojas com centenas de plugins ou sistemas customizados de terceiros serão especificadas e alinhadas na proposta.',
     idealFor:
       'Empresas que já contam com um site publicado, mas percebem que ele está lento, confuso no celular, com visual ultrapassado ou com baixa taxa de conversão.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: reformulacaoWebp,
+    imageFallback: reformulacaoJpg,
     mockupType: 'reformulacao',
   },
   {
@@ -304,8 +312,8 @@ export const servicesData: ServiceItem[] = [
       'O suporte cobre manutenção e ajustes na estrutura já existente. Não inclui desenvolvimento de novas páginas completas, redesenho estrutural ou criação de novos sistemas, que são cotados separadamente como novos projetos.',
     idealFor:
       'Empresas que não dispõem de equipe interna de desenvolvimento e necessitam da tranquilidade de ter um profissional cuidando da estabilidade e atualização do seu site.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: manutencaoWebp,
+    imageFallback: manutencaoJpg,
     mockupType: 'manutencao',
   },
   {
@@ -328,8 +336,8 @@ export const servicesData: ServiceItem[] = [
       'Serviço focado exclusivamente na produção das artes gráficas digitais. A quantidade de formatos, peças, rodadas de revisão e prazos constam na proposta. A gestão de veiculação e verba de anúncios não estão inclusas caso contratado de forma avulsa.',
     idealFor:
       'Negócios que já investem ou planejam investir em anúncios e precisam de criativos com acabamento visual superior para destacar suas ofertas e aumentar as taxas de cliques.',
-    imageSrc: '',
-    imageFallback: '',
+    imageSrc: criativosWebp,
+    imageFallback: criativosJpg,
     mockupType: 'criativos',
   },
 ];
