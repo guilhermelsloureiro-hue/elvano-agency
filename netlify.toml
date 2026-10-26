@@ -2,10 +2,8 @@
   publish = "dist"
   command = "npm run build"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Rotas do site (as regras de rewrite ficam em public/_redirects).
+# Rotas desconhecidas recebem status 404 para o Google não indexar páginas inexistentes.
 
 [[headers]]
   for = "/*"
