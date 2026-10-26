@@ -45,6 +45,24 @@ export default function App() {
     };
 
     document.title = titles[currentPath] || 'ELVANO Agency';
+
+    // Canonical por rota e noindex para páginas inexistentes
+    const isKnownRoute = currentPath in titles;
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = `https://elvano-agency.com.br${isKnownRoute ? currentPath : '/'}`;
+
+    let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement('meta');
+      robots.name = 'robots';
+      document.head.appendChild(robots);
+    }
+    robots.content = isKnownRoute ? 'index, follow' : 'noindex, follow';
   }, [currentPath]);
 
   const navigateTo = (path: string, options?: { serviceId?: string }) => {

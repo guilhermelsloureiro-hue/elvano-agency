@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elvano-agency.com.br/sitemap.xml
