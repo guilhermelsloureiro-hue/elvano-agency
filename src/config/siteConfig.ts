@@ -18,9 +18,13 @@ export const siteConfig = {
   defaultWhatsAppMessage:
     'Olá, Guilherme! Conheci a ELVANO pelo site e gostaria de conversar sobre o meu negócio.',
 
+  // Mensagem do botão principal: pedido de prévia gratuita
+  previewWhatsAppMessage:
+    'Olá, Guilherme! Vi o site da ELVANO e quero ver uma prévia do site do meu negócio. Meu negócio é: ',
+
   // Mensagem da chamada final
   finalCtaWhatsAppMessage:
-    'Olá, Guilherme! Gostaria de conversar sobre o próximo passo do meu negócio e alinhar qual solução da ELVANO é a mais adequada.',
+    'Olá, Guilherme! Quero ver uma prévia do site do meu negócio. Meu negócio é: ',
 
   // Gerador robusto de links de WhatsApp com encoding correto
   getWhatsAppLink(customMessage?: string): string {
@@ -49,8 +53,9 @@ export const siteConfig = {
   // Navegação do site
   navLinks: [
     { label: 'Início', path: '/' },
+    { label: 'Exemplos', path: '/exemplos' },
     { label: 'Serviços', path: '/servicos' },
-    { label: 'Resultados', path: '/resultados' },
+    { label: 'Experiência', path: '/resultados' },
     { label: 'Sobre', path: '/sobre' },
     { label: 'Contato', path: '/contato' },
   ],

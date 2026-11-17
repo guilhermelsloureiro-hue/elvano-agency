@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage';
 import { type ServiceItem } from './data/servicesData';
 
 // Route-based code splitting for secondary pages to reduce initial bundle
+const ExamplesPage = lazy(() => import('./pages/ExamplesPage').then((m) => ({ default: m.ExamplesPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })));
 const ResultsPage = lazy(() => import('./pages/ResultsPage').then((m) => ({ default: m.ResultsPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
@@ -36,9 +37,10 @@ export default function App() {
   // Update document title dynamically per route
   useEffect(() => {
     const titles: Record<string, string> = {
-      '/': 'ELVANO Agency | Presença Digital, Design & Gestão de Anúncios',
+      '/': 'ELVANO Agency | Sites para negócios de Jandira, Barueri e região',
+      '/exemplos': 'Exemplos de sites por segmento | ELVANO Agency',
       '/servicos': 'Catálogo de Serviços | ELVANO Agency',
-      '/resultados': 'Resultados e Experiência | ELVANO Agency',
+      '/resultados': 'Experiência | ELVANO Agency',
       '/sobre': 'Sobre a ELVANO | Guilherme Lousada Loureiro',
       '/contato': 'Contato Comercial | ELVANO Agency',
       '/privacidade': 'Privacidade & Dados | ELVANO Agency',
@@ -97,6 +99,8 @@ export default function App() {
             onOpenDetails={handleOpenDetails}
           />
         );
+      case '/exemplos':
+        return <ExamplesPage />;
       case '/servicos':
         return <ServicesPage onOpenDetails={handleOpenDetails} />;
       case '/resultados':
