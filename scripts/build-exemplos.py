@@ -188,7 +188,7 @@ def page(s):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{s['brand']} · Exemplo demonstrativo ELVANO</title>
-<meta name="description" content="Exemplo demonstrativo de site para {s['niche']} criado pela ELVANO. Marca fictícia.">
+<meta name="description" content="Exemplo demonstrativo de site para {s['niche']} criado pela ELVANO.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://elvano-agency.com.br/exemplos/{s['slug']}/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,7 +270,7 @@ def page(s):
 <div><h4>Navegação</h4>{''.join(f'<a href="#{a}">{t}</a>' for t, a in s['nav'])}</div>
 <div><h4>Contato</h4><p>{s['address']}</p><p>(11) 9xxxx-xxxx</p><p>@{s['slug']}.exemplo</p></div>
 </div>
-<div class="copy"><span>© 2026 {s['brand']} · marca fictícia para demonstração</span><span>Site criado pela <a href="https://elvano-agency.com.br/" style="display:inline;color:var(--accent);font-weight:700">ELVANO</a></span></div>
+<div class="copy"><span>© 2026 {s['brand']}</span><span>Site criado pela <a href="https://elvano-agency.com.br/" style="display:inline;color:var(--accent);font-weight:700">ELVANO</a></span></div>
 </div></footer>
 <a class="wa-float" href="{w}" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">{ic('msg', 28)}</a>
 </body>

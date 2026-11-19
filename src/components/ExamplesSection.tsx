@@ -63,7 +63,7 @@ export const ExamplesSection: React.FC<{ showHeading?: boolean }> = ({ showHeadi
             Abra e navegue pelos exemplos
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#DDD4CB] leading-relaxed">
-            Sites completos, prontos para celular e computador. As marcas são fictícias, só para mostrar o padrão: o do seu negócio sai com as suas cores, fotos e informações.
+            Sites completos, prontos para celular e computador. São exemplos do nosso padrão: o do seu negócio sai com as suas cores, fotos e informações.
           </p>
         </div>
       )}
@@ -117,7 +117,7 @@ export const ExamplesSection: React.FC<{ showHeading?: boolean }> = ({ showHeadi
               <div className="flex-1 space-y-2">
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="text-[11px] uppercase tracking-widest font-semibold text-[#E3C8B2]">{site.niche}</span>
-                  <span className="text-[11px] text-[#C7BEB5]/70">marca fictícia</span>
+                  <span className="text-[11px] text-[#C7BEB5]/70">exemplo</span>
                 </div>
                 <h3 className="text-xl font-serif text-[#F7F5F2]">{site.brand}</h3>
                 <p className="text-sm text-[#DDD4CB] leading-relaxed">{site.description}</p>
@@ -159,7 +159,7 @@ export const ExamplesSection: React.FC<{ showHeading?: boolean }> = ({ showHeadi
       </div>
 
       <p className="mt-8 text-center text-xs text-[#C7BEB5]/80">
-        Marcas, preços, telefones e endereços dos exemplos são ilustrativos. Seu negócio é de outro segmento? O site é feito sob medida para ele também.
+        Seu negócio é de outro segmento? O site é feito sob medida para ele também.
       </p>
     </section>
   );

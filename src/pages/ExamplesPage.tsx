@@ -15,7 +15,7 @@ export const ExamplesPage: React.FC = () => {
           Veja como o site do seu negócio pode ficar
         </h1>
         <p className="mt-4 text-base sm:text-lg text-[#DDD4CB] leading-relaxed">
-          Quatro sites completos para você abrir e navegar, no celular ou no computador. As marcas são fictícias: o site do seu negócio é feito sob medida, com as suas cores, fotos e informações.
+          Quatro sites completos para você abrir e navegar, no celular ou no computador. São exemplos do nosso padrão: o site do seu negócio é feito sob medida, com as suas cores, fotos e informações.
         </p>
       </div>
 
